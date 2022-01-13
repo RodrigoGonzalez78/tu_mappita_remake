@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tumappitaremake/screems/home/parts/servicios.dart';
-import 'package:tumappitaremake/screems/home/parts/servicios_basicos.dart';
-import 'package:tumappitaremake/screems/home/parts/turismo.dart';
+import 'package:tumappitaremake/src/screems/home/parts/servicios.dart';
+import 'package:tumappitaremake/src/screems/home/parts/servicios_basicos.dart';
+import 'package:tumappitaremake/src/screems/home/parts/turismo.dart';
 
 class BodyHome extends StatefulWidget {
   BodyHome({Key? key}) : super(key: key);

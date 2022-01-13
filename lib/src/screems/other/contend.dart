@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tumappitaremake/screems/other/person_card.dart';
+import 'package:tumappitaremake/src/screems/other/person_card.dart';
 
 class Contenido extends StatefulWidget {
   Contenido({Key? key}) : super(key: key);

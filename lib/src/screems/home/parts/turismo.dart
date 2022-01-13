@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:tumappitaremake/const.dart';
 import 'my_card.dart';
 
-class Servicios extends StatefulWidget {
-  Servicios({Key? key}) : super(key: key);
+class Turismo extends StatefulWidget {
+  Turismo({Key? key}) : super(key: key);
 
   @override
-  _ServiciosState createState() => _ServiciosState();
+  _TurismoState createState() => _TurismoState();
 }
 
-class _ServiciosState extends State<Servicios> {
+class _TurismoState extends State<Turismo> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +21,7 @@ class _ServiciosState extends State<Servicios> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Servicios",
+              "Turismo",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -36,19 +35,34 @@ class _ServiciosState extends State<Servicios> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 MyCard(
-                  buttonName: 'Comercios',
-                  imagenLocation: "assents/icons/tienda.svg",
-                  routePage: contendRoute,
+                  buttonName: 'Lugares',
+                  imagenLocation: "assents/icons/sitio.svg",
+                  routePage: "",
                 ),
                 MyCard(
-                  buttonName: 'Servicios',
-                  imagenLocation: "assents/icons/atencion.svg",
+                  buttonName: 'Alojamiento',
+                  imagenLocation: "assents/icons/alojamiento.svg",
                   routePage: "",
                 ),
               ],
             ),
             SizedBox(
               height: 10,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                MyCard(
+                  buttonName: 'Eventos',
+                  imagenLocation: "assents/icons/evento.svg",
+                  routePage: "",
+                ),
+                MyCard(
+                  buttonName: 'Informacion',
+                  imagenLocation: "assents/icons/informacion.svg",
+                  routePage: "",
+                ),
+              ],
             ),
           ],
         ),

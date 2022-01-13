@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:tumappitaremake/const.dart';
+import 'package:tumappitaremake/src/const.dart';
 import "package:url_launcher/url_launcher.dart";
 
 class PersonCard extends StatelessWidget {
@@ -84,10 +84,8 @@ class PersonCard extends StatelessWidget {
             margin: EdgeInsets.all(3),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(shape: BoxShape.circle),
-
             child: Image.network(
-                "https://concepto.de/wp-content/uploads/2013/03/tipos-de-comercio-mayorista-e1593302275424.jpg",
-
+              "https://concepto.de/wp-content/uploads/2013/03/tipos-de-comercio-mayorista-e1593302275424.jpg",
             ),
           )
         ],
