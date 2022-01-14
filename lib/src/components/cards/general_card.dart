@@ -3,8 +3,25 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tumappitaremake/src/const.dart';
 import "package:url_launcher/url_launcher.dart";
 
-class PersonCard extends StatelessWidget {
-  const PersonCard({Key? key}) : super(key: key);
+class GeneralCard extends StatelessWidget {
+  const GeneralCard(
+      {Key? key,
+      required this.name,
+      required this.phoneNumber,
+      required this.description,
+      required this.imageLink,
+      required this.instagramLink,
+      required this.facebookLink,
+      required this.mapsLink})
+      : super(key: key);
+  final String name;
+  //El numero tiene que contener la caracteristicas
+  final int phoneNumber;
+  final String description;
+  final String imageLink;
+  final String instagramLink;
+  final String facebookLink;
+  final String mapsLink;
 
   @override
   Widget build(BuildContext context) {
@@ -29,36 +46,33 @@ class PersonCard extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            datos(),
+            _descriptiveDates(),
             Divider(
               color: Colors.black,
             ),
-            contacto()
+            _contactDates()
           ],
         ),
       ),
     );
   }
 
-  Expanded contacto() {
+  Expanded _contactDates() {
     return Expanded(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _iconButton("assents/icons/contact/instagram.svg",
-              "https://instagram.com/pupipakily?utm_medium=copy_link"),
-          _iconButton("assents/icons/contact/facebook.svg",
-              "https://instagram.com/pupipakily?utm_medium=copy_link"),
-          _iconButton("assents/icons/contact/whatsapp.svg",
-              linkWhatsapp(5493781608342)),
-          _iconButton("assents/icons/sitio.svg",
-              "https://maps.app.goo.gl/KS5F18NUzGenGYEaA")
+          _iconButton("assents/icons/contact/instagram.svg", instagramLink),
+          _iconButton("assents/icons/contact/facebook.svg", facebookLink),
+          _iconButton(
+              "assents/icons/contact/whatsapp.svg", linkWhatsapp(phoneNumber)),
+          _iconButton("assents/icons/sitio.svg", mapsLink)
         ],
       ),
     );
   }
 
-  Expanded datos() {
+  Expanded _descriptiveDates() {
     return Expanded(
       flex: 2,
       child: Row(
@@ -69,11 +83,11 @@ class PersonCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Kili",
+                name,
                 style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
               ),
               Text(
-                "Maxikiosco",
+                description,
                 style: TextStyle(
                   fontSize: 15,
                 ),
@@ -85,7 +99,7 @@ class PersonCard extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(shape: BoxShape.circle),
             child: Image.network(
-              "https://concepto.de/wp-content/uploads/2013/03/tipos-de-comercio-mayorista-e1593302275424.jpg",
+              imageLink,
             ),
           )
         ],

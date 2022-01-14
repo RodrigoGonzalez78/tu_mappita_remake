@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tumappitaremake/src/const.dart';
 import 'package:tumappitaremake/src/screems/home/home.dart';
-import 'package:tumappitaremake/src/screems/other/contend.dart';
+import 'package:tumappitaremake/src/screems/general_content/general_content_view.dart';
 
 class MyApp extends StatelessWidget {
   @override
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       initialRoute: homeRoute,
       routes: {
         homeRoute: (BuildContext context) => const Home(),
-        contendRoute: (BuildContext constext) => Contenido()
+        contendRoute: (BuildContext constext) => GeneralContentView()
       },
     );
   }

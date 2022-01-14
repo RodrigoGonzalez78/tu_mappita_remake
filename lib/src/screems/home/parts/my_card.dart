@@ -18,13 +18,15 @@ class MyCard extends StatefulWidget {
 class _MyCardState extends State<MyCard> {
   @override
   Widget build(BuildContext context) {
+    final Size size = MediaQuery.of(context).size;
+
     return InkWell(
       onTap: () {
         _goToScreen(context, widget.routePage);
       },
       child: Container(
-        height: 130,
-        width: 140,
+        height: size.height * .20,
+        width: size.width * .40,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),

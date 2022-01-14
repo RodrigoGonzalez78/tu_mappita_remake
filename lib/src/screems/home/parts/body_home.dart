@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tumappitaremake/src/screems/home/parts/servicios.dart';
-import 'package:tumappitaremake/src/screems/home/parts/servicios_basicos.dart';
-import 'package:tumappitaremake/src/screems/home/parts/turismo.dart';
+import 'package:tumappitaremake/src/screems/home/parts/services.dart';
+import 'package:tumappitaremake/src/screems/home/parts/basic_services.dart';
+import 'package:tumappitaremake/src/screems/home/parts/tourism.dart';
 
 class BodyHome extends StatefulWidget {
   BodyHome({Key? key}) : super(key: key);
@@ -19,9 +19,9 @@ class _BodyHomeState extends State<BodyHome> {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Turismo(),
-          Servicios(),
-          ServiciosBasicos(),
+          TourismSection(),
+          ServicesSection(),
+          BasicServicesSection(),
         ],
       ),
     );

@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:tumappitaremake/src/const.dart';
 import 'my_card.dart';
 
-class Turismo extends StatefulWidget {
-  Turismo({Key? key}) : super(key: key);
+class ServicesSection extends StatefulWidget {
+  ServicesSection({Key? key}) : super(key: key);
 
   @override
-  _TurismoState createState() => _TurismoState();
+  _ServicesSectionState createState() => _ServicesSectionState();
 }
 
-class _TurismoState extends State<Turismo> {
+class _ServicesSectionState extends State<ServicesSection> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,7 +22,7 @@ class _TurismoState extends State<Turismo> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Turismo",
+              "Servicios",
               style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,
@@ -35,34 +36,19 @@ class _TurismoState extends State<Turismo> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 MyCard(
-                  buttonName: 'Lugares',
-                  imagenLocation: "assents/icons/sitio.svg",
-                  routePage: "",
+                  buttonName: 'Comercios',
+                  imagenLocation: "assents/icons/tienda.svg",
+                  routePage: contendRoute,
                 ),
                 MyCard(
-                  buttonName: 'Alojamiento',
-                  imagenLocation: "assents/icons/alojamiento.svg",
+                  buttonName: 'Tecnicos',
+                  imagenLocation: "assents/icons/atencion.svg",
                   routePage: "",
                 ),
               ],
             ),
             SizedBox(
               height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                MyCard(
-                  buttonName: 'Eventos',
-                  imagenLocation: "assents/icons/evento.svg",
-                  routePage: "",
-                ),
-                MyCard(
-                  buttonName: 'Informacion',
-                  imagenLocation: "assents/icons/informacion.svg",
-                  routePage: "",
-                ),
-              ],
             ),
           ],
         ),

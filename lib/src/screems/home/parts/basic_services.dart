@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'my_card.dart';
 
-class ServiciosBasicos extends StatefulWidget {
-  ServiciosBasicos({Key? key}) : super(key: key);
+class BasicServicesSection extends StatefulWidget {
+  BasicServicesSection({Key? key}) : super(key: key);
 
   @override
-  _ServiciosBasicosState createState() => _ServiciosBasicosState();
+  _BasicServicesSectionState createState() => _BasicServicesSectionState();
 }
 
-class _ServiciosBasicosState extends State<ServiciosBasicos> {
+class _BasicServicesSectionState extends State<BasicServicesSection> {
   @override
   Widget build(BuildContext context) {
     return Container(

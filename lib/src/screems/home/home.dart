@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tumappitaremake/src/screems/home/parts/bodyHome.dart';
+import 'package:tumappitaremake/src/screems/home/parts/body_home.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);

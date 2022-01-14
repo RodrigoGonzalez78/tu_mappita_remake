@@ -30,15 +30,20 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   url_launcher: ^6.0.12
+  flutter_native_splash: ^1.3.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
+flutter_native_splash:
+  android: true
+  color: "#ffffff"
+  image: assents/logo.png
+  android_gravity: center
 
-# The following section is specific to Flutter.
+
+
 flutter:
 
   # The following line ensures that the Material Icons font is
@@ -48,6 +53,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+    - assents/logo.png
     - assents/images/fondo.jpg
     - assents/icons/
     - assents/icons/contact/
