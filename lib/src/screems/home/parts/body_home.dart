@@ -22,6 +22,9 @@ class _BodyHomeState extends State<BodyHome> {
           TourismSection(),
           ServicesSection(),
           BasicServicesSection(),
+          Container(
+            height: 30,
+          )
         ],
       ),
     );

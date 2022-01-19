@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tumappitaremake/src/models/TagModel.dart';
 
 class MyCard extends StatefulWidget {
   final String buttonName;
   final String imagenLocation;
   final String routePage;
+  final String tag;
+  final String title;
 
   MyCard(
       {required this.buttonName,
       required this.imagenLocation,
-      required this.routePage});
+      required this.routePage,
+      required this.tag,
+      required this.title});
 
   @override
   _MyCardState createState() => _MyCardState();
@@ -22,11 +27,12 @@ class _MyCardState extends State<MyCard> {
 
     return InkWell(
       onTap: () {
-        _goToScreen(context, widget.routePage);
+        _goToScreen(context, widget.routePage,
+            TagModel(tag: widget.tag, title: widget.title));
       },
       child: Container(
-        height: size.height * .20,
-        width: size.width * .40,
+        height: size.height * .18,
+        width: size.width * .38,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
@@ -60,7 +66,7 @@ class _MyCardState extends State<MyCard> {
     );
   }
 
-  void _goToScreen(BuildContext context, String routePage) {
-    Navigator.of(context).pushNamed(routePage);
+  void _goToScreen(BuildContext context, String routePage, TagModel tag) {
+    Navigator.of(context).pushNamed(routePage, arguments: tag);
   }
 }

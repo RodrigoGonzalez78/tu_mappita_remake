@@ -1,27 +1,29 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:tumappitaremake/src/const.dart';
+import 'package:tumappitaremake/src/models/GeneralDate.dart';
 import "package:url_launcher/url_launcher.dart";
 
 class GeneralCard extends StatelessWidget {
-  const GeneralCard(
-      {Key? key,
-      required this.name,
-      required this.phoneNumber,
-      required this.description,
-      required this.imageLink,
-      required this.instagramLink,
-      required this.facebookLink,
-      required this.mapsLink})
-      : super(key: key);
-  final String name;
+  GeneralCard({required GeneralDate generalDate}) {
+    this.name = generalDate.name;
+    this.description = generalDate.description;
+    this.facebookLink = generalDate.facebookLink;
+    this.imageLink = generalDate.imageLink;
+    this.mapsLink = generalDate.mapsLink;
+    this.phoneNumber = generalDate.phoneNumber;
+    this.instagramLink = generalDate.instagramLink;
+  }
+
+  late String name;
   //El numero tiene que contener la caracteristicas
-  final int phoneNumber;
-  final String description;
-  final String imageLink;
-  final String instagramLink;
-  final String facebookLink;
-  final String mapsLink;
+  late int phoneNumber;
+  late String description;
+  late String imageLink;
+  late String instagramLink;
+  late String facebookLink;
+  late String mapsLink;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,7 @@ class GeneralCard extends StatelessWidget {
     return Container(
       margin: EdgeInsets.all(10),
       width: double.infinity,
-      height: screemSize.height * .25,
+      height: screemSize.height * .40,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(10),
@@ -46,7 +48,7 @@ class GeneralCard extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            _descriptiveDates(),
+            _descriptiveDates(context),
             Divider(
               color: Colors.black,
             ),
@@ -72,34 +74,47 @@ class GeneralCard extends StatelessWidget {
     );
   }
 
-  Expanded _descriptiveDates() {
+  Expanded _descriptiveDates(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Expanded(
       flex: 2,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
-              ),
-              Text(
-                description,
-                style: TextStyle(
-                  fontSize: 15,
-                ),
-              ),
-            ],
+          Container(
+            width: size.width * .5,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AutoSizeText(name,
+                    maxLines: 2,
+                    maxFontSize: 30,
+                    minFontSize: 15,
+                    overflow: TextOverflow.ellipsis,
+                    style:
+                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                AutoSizeText(
+                  description,
+                  overflow: TextOverflow.ellipsis,
+                  minFontSize: 10,
+                  maxLines: 4,
+                  style: TextStyle(
+                    fontSize: 20,
+                  ),
+                )
+              ],
+            ),
           ),
           Container(
+            height: 100,
+            width: size.width * .35,
             margin: EdgeInsets.all(3),
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(shape: BoxShape.circle),
             child: Image.network(
               imageLink,
+              fit: BoxFit.cover,
             ),
           )
         ],

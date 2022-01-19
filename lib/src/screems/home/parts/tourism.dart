@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tumappitaremake/src/const.dart';
 import 'my_card.dart';
 
 class TourismSection extends StatefulWidget {
@@ -37,12 +38,16 @@ class _TourismSectionState extends State<TourismSection> {
                 MyCard(
                   buttonName: 'Lugares',
                   imagenLocation: "assents/icons/sitio.svg",
-                  routePage: "",
+                  routePage: placesRoute,
+                  tag: "",
+                  title: 'Lugares',
                 ),
                 MyCard(
                   buttonName: 'Alojamiento',
                   imagenLocation: "assents/icons/alojamiento.svg",
-                  routePage: "",
+                  routePage: contendRoute,
+                  tag: "",
+                  title: 'Alojamiento',
                 ),
               ],
             ),
@@ -55,12 +60,16 @@ class _TourismSectionState extends State<TourismSection> {
                 MyCard(
                   buttonName: 'Eventos',
                   imagenLocation: "assents/icons/evento.svg",
-                  routePage: "",
+                  routePage: eventRoute,
+                  tag: "",
+                  title: 'Eventos',
                 ),
                 MyCard(
-                  buttonName: 'Informacion',
+                  buttonName: 'Información',
                   imagenLocation: "assents/icons/informacion.svg",
-                  routePage: "",
+                  routePage: infoRoute,
+                  tag: "",
+                  title: 'Información',
                 ),
               ],
             ),

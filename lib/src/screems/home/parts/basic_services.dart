@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tumappitaremake/src/const.dart';
 import 'my_card.dart';
 
 class BasicServicesSection extends StatefulWidget {
@@ -37,12 +38,16 @@ class _BasicServicesSectionState extends State<BasicServicesSection> {
                 MyCard(
                   buttonName: 'Finanzas',
                   imagenLocation: "assents/icons/banco.svg",
-                  routePage: "",
+                  routePage: contendRoute,
+                  title: "Finanzas",
+                  tag: "",
                 ),
                 MyCard(
                   buttonName: 'Salud',
                   imagenLocation: "assents/icons/salud.svg",
-                  routePage: "",
+                  routePage: contendRoute,
+                  title: "Salud",
+                  tag: "",
                 ),
               ],
             ),
@@ -53,14 +58,18 @@ class _BasicServicesSectionState extends State<BasicServicesSection> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 MyCard(
-                  buttonName: 'Educacion',
+                  buttonName: 'Educación',
                   imagenLocation: "assents/icons/birrete.svg",
-                  routePage: "",
+                  routePage: contendRoute,
+                  title: "Educaión",
+                  tag: "",
                 ),
                 MyCard(
                   buttonName: 'Seguridad',
                   imagenLocation: "assents/icons/policia.svg",
-                  routePage: "",
+                  routePage: contendRoute,
+                  title: "Seguridad",
+                  tag: "",
                 ),
               ],
             ),

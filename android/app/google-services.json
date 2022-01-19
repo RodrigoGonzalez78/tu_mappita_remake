@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "177896962734",
+    "project_id": "tumappitaremake",
+    "storage_bucket": "tumappitaremake.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:177896962734:android:f96bc62b318491068d0b3f",
+        "android_client_info": {
+          "package_name": "com.example.tumappitaremake"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "177896962734-m068uoolqo74i7dkufqd26a6g16d8qee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLBBmgA-TnMZKwirbOuYHgf8VRLXEvd-s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "177896962734-m068uoolqo74i7dkufqd26a6g16d8qee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
