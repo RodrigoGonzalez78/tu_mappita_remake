@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:tumappitaremake/src/screems/home/parts/body_home.dart';
 
@@ -10,6 +11,16 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final List<Widget> _myList = [BodyHome()];
+
+  @override
+  void initState() {
+    super.initState();
+
+    Firebase.initializeApp().whenComplete(() {
+      print("completed");
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {

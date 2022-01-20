@@ -46,7 +46,7 @@ class _TourismSectionState extends State<TourismSection> {
                   buttonName: 'Alojamiento',
                   imagenLocation: "assents/icons/alojamiento.svg",
                   routePage: contendRoute,
-                  tag: "",
+                  tag: "lodging",
                   title: 'Alojamiento',
                 ),
               ],

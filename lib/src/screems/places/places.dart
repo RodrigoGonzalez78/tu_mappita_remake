@@ -11,16 +11,15 @@ class _PlacesScreenState extends State<PlacesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        iconTheme: IconThemeData(color: Colors.black),
-        title: Text(
-          "Lugares",
-          style: TextStyle(color: Colors.black),
+        appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.black),
+          title: Text(
+            "Lugares",
+            style: TextStyle(color: Colors.black),
+          ),
+          backgroundColor: Colors.white,
+          centerTitle: true,
         ),
-        backgroundColor: Colors.white,
-        centerTitle: true,
-      ),
-      body: Container(),
-    );
+        body: Container());
   }
 }

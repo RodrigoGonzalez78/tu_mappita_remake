@@ -1,22 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:tumappitaremake/src/components/cards/general_card.dart';
+import 'package:tumappitaremake/src/components/internet_no_conection.dart';
 import 'package:tumappitaremake/src/models/GeneralDate.dart';
 import 'package:tumappitaremake/src/models/TagModel.dart';
-
-final dateEjepl = GeneralDate(
-    name: "Maxikiosko Kili",
-    phoneNumber: 543794407878,
-    description:
-        "Esta es una descripcion de ejempplo con informacion relevante",
-    imageLink:
-        "https://concepto.de/wp-content/uploads/2013/03/tipos-de-comercio-mayorista-e1593302275424.jpg",
-    instagramLink: "https://instagram.com/pupipakily?utm_medium=copy_link",
-    facebookLink: "https://www.facebook.com/pinchypacheco/",
-    mapsLink: "https://goo.gl/maps/4Ncf5FGKGUpLEijE6");
-
-Widget cardEjmpl = GeneralCard(
-  generalDate: dateEjepl,
-);
 
 class GeneralContentView extends StatefulWidget {
   GeneralContentView({
@@ -42,8 +29,34 @@ class _GeneralContentViewState extends State<GeneralContentView> {
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: ListView(
-        children: [cardEjmpl, cardEjmpl, cardEjmpl, cardEjmpl],
+      body: Container(
+        child: Center(
+          child: StreamBuilder(
+            //Obtine la instancia de firebase de una colecion
+            stream: FirebaseFirestore.instance
+                .collection(arguments.tag)
+                .snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) return CircularProgressIndicator();
+//snapshot.data!.docs.length,
+
+              Widget widgetRetun = InternetNoConectedW();
+
+              if (snapshot.data!.docs.length != 0) {
+                widgetRetun = ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return GeneralCard(
+                        generalDate: GeneralDate.fromJson(
+                            snapshot.data!.docs[index].data()! as Map));
+                  },
+                );
+              }
+              return widgetRetun;
+            },
+          ),
+        ),
       ),
     );
   }
