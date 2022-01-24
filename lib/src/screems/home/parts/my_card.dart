@@ -30,7 +30,7 @@ class _MyCardState extends State<MyCard> {
         _goToScreen(context, widget.routePage,
             TagModel(tag: widget.tag, title: widget.title));
       },
-      child: Container(
+      child: Ink(
         height: size.height * .18,
         width: size.width * .38,
         decoration: BoxDecoration(

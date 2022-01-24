@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:tumappitaremake/src/const.dart';
 import 'package:tumappitaremake/src/screems/events/events_screen.dart';
 import 'package:tumappitaremake/src/screems/home/home.dart';
@@ -9,6 +10,12 @@ import 'package:tumappitaremake/src/screems/places/places.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Setear la orientacion en retrato
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Tu Mappita Remake',

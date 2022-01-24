@@ -5,7 +5,7 @@ import 'package:tumappitaremake/src/const.dart';
 import 'package:tumappitaremake/src/models/GeneralDate.dart';
 import "package:url_launcher/url_launcher.dart";
 
-class GeneralCard extends StatelessWidget {
+class GeneralCard extends StatefulWidget {
   GeneralCard({required GeneralDate generalDate}) {
     this.name = generalDate.name;
     this.description = generalDate.description;
@@ -26,104 +26,83 @@ class GeneralCard extends StatelessWidget {
   late String mapsLink;
 
   @override
+  _GeneralCardState createState() => _GeneralCardState();
+}
+
+class _GeneralCardState extends State<GeneralCard> {
+  @override
   Widget build(BuildContext context) {
-    final Size screemSize = MediaQuery.of(context).size;
-    return Container(
+    return Card(
       margin: EdgeInsets.all(10),
-      width: double.infinity,
-      height: screemSize.height * .40,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.3),
-            spreadRadius: 5,
-            blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
-          ),
-        ],
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
       ),
+      elevation: 6.0,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(6),
         child: Column(
           children: [
-            _descriptiveDates(context),
+            Container(
+              clipBehavior: Clip.antiAlias,
+              height: 200.0,
+              child: Ink.image(
+                image: NetworkImage(widget.imageLink),
+                fit: BoxFit.cover,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+            ListTile(
+              title: Text(
+                widget.name,
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                maxLines: 3,
+              ),
+              subtitle: Text(
+                widget.description,
+                style: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ),
             Divider(
               color: Colors.black,
             ),
-            _contactDates()
+            _contactDates(),
           ],
         ),
       ),
     );
   }
 
-  Expanded _contactDates() {
-    return Expanded(
+  Widget _contactDates() {
+    return SizedBox(
+      width: double.infinity,
+      height: 70,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _iconButton("assents/icons/contact/instagram.svg", instagramLink),
-          _iconButton("assents/icons/contact/facebook.svg", facebookLink),
           _iconButton(
-              "assents/icons/contact/whatsapp.svg", linkWhatsapp(phoneNumber)),
-          _iconButton("assents/icons/sitio.svg", mapsLink)
-        ],
-      ),
-    );
-  }
-
-  Expanded _descriptiveDates(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-    return Expanded(
-      flex: 2,
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            width: size.width * .5,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                AutoSizeText(name,
-                    maxLines: 2,
-                    maxFontSize: 30,
-                    minFontSize: 15,
-                    overflow: TextOverflow.ellipsis,
-                    style:
-                        TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
-                AutoSizeText(
-                  description,
-                  overflow: TextOverflow.ellipsis,
-                  minFontSize: 10,
-                  maxLines: 4,
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
-                )
-              ],
-            ),
-          ),
-          Container(
-            height: 100,
-            width: size.width * .35,
-            margin: EdgeInsets.all(3),
-            clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(shape: BoxShape.circle),
-            child: Image.network(
-              imageLink,
-              fit: BoxFit.cover,
-            ),
-          )
+              "assents/icons/contact/instagram2.svg", widget.instagramLink),
+          _iconButton(
+              "assents/icons/contact/facebook2.svg", widget.facebookLink),
+          _iconButton("assents/icons/contact/whatsapp2.svg",
+              linkWhatsapp(widget.phoneNumber)),
+          _iconButton("assents/icons/contact/maps2.svg", widget.mapsLink)
         ],
       ),
     );
   }
 
   Widget _iconButton(String imageSvgName, String urlString) {
-    final double size = 30;
+    final double size = 35;
+    Color iconColor = Colors.black;
+
+    if (urlString == "") {
+      iconColor = Colors.red;
+    }
+
     return InkWell(
       onTap: () async {
         if (await canLaunch(urlString)) {
@@ -136,6 +115,7 @@ class GeneralCard extends StatelessWidget {
         imageSvgName,
         width: size,
         height: size,
+        color: iconColor,
       ),
     );
   }

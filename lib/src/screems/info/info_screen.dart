@@ -1,4 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:tumappitaremake/src/components/cards/info_card.dart';
+import 'package:tumappitaremake/src/components/internet_no_conection.dart';
+import 'package:tumappitaremake/src/models/InfoDate.dart';
 
 class InfoScreen extends StatefulWidget {
   InfoScreen({Key? key}) : super(key: key);
@@ -20,7 +24,34 @@ class _InfoScreenState extends State<InfoScreen> {
         backgroundColor: Colors.white,
         centerTitle: true,
       ),
-      body: Container(),
+      body: Container(
+        child: Center(
+          child: StreamBuilder(
+            //Obtine la instancia de firebase de una colecion
+            stream: FirebaseFirestore.instance.collection("info").snapshots(),
+            builder:
+                (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (!snapshot.hasData) return CircularProgressIndicator();
+              //snapshot.data!.docs.length,
+
+              Widget widgetRetun = InternetNoConectedW();
+
+              if (snapshot.data!.docs.length != 0) {
+                widgetRetun = ListView.builder(
+                  itemCount: snapshot.data!.docs.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return InfoCard(
+                      infoDate: InfoDate.fromJson(snapshot.data!.docs[index]
+                          .data()! as Map<String, dynamic>),
+                    );
+                  },
+                );
+              }
+              return widgetRetun;
+            },
+          ),
+        ),
+      ),
     );
   }
 }
