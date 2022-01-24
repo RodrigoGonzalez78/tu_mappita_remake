@@ -1,4 +1,4 @@
 # tumappitaremake
-
-A new Flutter project.
+"Tu Mappita"
+Aplicacion de turismo para una localidad.
 
