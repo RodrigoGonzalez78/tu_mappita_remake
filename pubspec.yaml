@@ -30,20 +30,33 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^0.22.0
   url_launcher: ^6.0.12
-  flutter_native_splash: ^1.3.2
-  auto_size_text: ^3.0.0
   firebase_core: ^1.11.0
   cloud_firestore: ^3.1.6
+  
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  flutter_native_splash: ^1.3.2
+  flutter_launcher_icons: ^0.9.2
 
 flutter_native_splash:
   android: true
   color: "#ffffff"
   image: assents/logo.png
   android_gravity: center
+
+flutter_icons:
+ 
+  image_path_android: "assents/icons/icono.png"
+  image_path_ios: "assents/icons/icono.png"
+  android: true 
+  ios: true 
+  remove_alpha_ios: true
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assents/icons/icono.png"
+
 
 
 

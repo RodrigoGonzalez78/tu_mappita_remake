@@ -16,7 +16,7 @@ class InternetNoConectedW extends StatelessWidget {
             height: 200,
           ),
           Text(
-            "Hubo un problema!",
+            "Nada por ahora!",
             style: TextStyle(fontSize: 20),
             maxLines: 2,
           )
